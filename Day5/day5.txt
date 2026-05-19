@@ -1,0 +1,100 @@
+1.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n, h;
+    cin >> n >> h;
+    int width = 0;
+    for (int i = 0; i < n; i++) {
+        int a;
+        cin >> a;
+        if (a > h)
+            width += 2;
+        else
+            width += 1;
+    }
+    cout << width << endl;
+    return 0;
+}
+2.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int y;
+    cin >> y;
+    while (true) {
+        y++;
+        int a = y / 1000;
+        int b = (y / 100) % 10;
+        int c = (y / 10) % 10;
+        int d = y % 10;
+        if (a != b && a != c && a != d &&
+            b != c && b != d &&
+            c != d) {
+            cout << y << endl;
+            break;
+        }
+    }
+    return 0;
+}
+
+3.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int n;
+    cin >> n;
+
+    int current = 0, capacity = 0;
+    for (int i = 0; i < n; i++) {
+        int a, b;
+        cin >> a >> b;
+        current = current - a + b;
+        if (current > capacity) {
+            capacity = current;
+        }
+    }
+
+    cout << capacity;
+    return 0;
+}
+4.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        sum += x;
+    }
+    if (sum > 0)
+        cout << "HARD";
+    else
+        cout << "EASY";
+}
+5.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n, t;
+    cin >> n >> t;
+    string s;
+    cin >> s;
+     while (t--) {
+        string temp = s;
+        for (int i = 0; i <= n - 1; i++) {
+            if (s[i] == 'B' && s[i + 1] == 'G') {
+                temp[i] = 'G';
+                temp[i + 1] = 'B';
+            }
+        }
+        s = temp;
+    }
+    cout << s;
+    return 0;
+}
