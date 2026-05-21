@@ -1,0 +1,132 @@
+1.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    bool passed[101] = {false};
+    int p, level;
+    cin >> p;
+    for (int i = 0; i < p; i++) {
+        cin >> level;
+        passed[level] = true;
+    }
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        cin >> level;
+        passed[level] = true;
+    }
+    bool canPass = true;
+    for (int i = 1; i <= n; i++) {
+        if (!passed[i]) {
+            canPass = false;
+            break;
+        }
+    }
+    if (canPass)
+        cout << "I become the guy.";
+    else
+        cout << "Oh, my keyboard!";
+
+    return 0;
+}
+2.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[101];
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int maxIndex = 0;
+    int minIndex = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] > a[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] <= a[minIndex]) {
+            minIndex = i;
+        }
+    }
+
+    int moves = maxIndex + (n - 1 - minIndex);
+
+    if (maxIndex > minIndex) {
+        moves--;
+    }
+
+    cout << moves;
+
+    return 0;
+}
+3.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int count = 0;
+
+    count += n / 100;
+    n %= 100;
+
+    count += n / 20;
+    n %= 20;
+
+    count += n / 10;
+    n %= 10;
+
+    count += n / 5;
+    n %= 5;
+
+    count += n;
+
+    cout << count;
+
+    return 0;
+}
+4.
+#include <iostream>
+using namespace std;
+int main() {
+    int k, l, m, n, d;
+    cin >> k >> l >> m >> n >> d;
+    int damaged = 0;
+    for (int i = 1; i <= d; i++) {
+        if (i % k == 0 || i % l == 0 || i % m == 0 || i % n == 0) {
+            damaged++;
+        }
+    }
+    cout << damaged;
+    return 0;
+}
+5.
+#include <iostream>
+#include <set>
+using namespace std;
+int main() {
+    string s;
+    getline(cin, s);
+    set<char> letters;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            letters.insert(s[i]);
+        }
+    }
+    cout << letters.size();
+    return 0;
+}
