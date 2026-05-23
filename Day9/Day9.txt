@@ -1,0 +1,128 @@
+1.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+     int n, sum = 0;
+    cin >> n;
+    string s;
+
+    while (n--) {
+        cin >> s;
+
+        if (s == "Tetrahedron") sum += 4;
+        else if (s == "Cube") sum += 6;
+        else if (s == "Octahedron") sum += 8;
+        else if (s == "Dodecahedron") sum += 12;
+        else if (s == "Icosahedron") sum += 20;
+    }
+
+    cout << sum;
+    return 0;
+}
+2.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n, m;
+    cin >> n >> m;
+
+    for (int i = 1; i <= n; i++) {
+
+        // Full row of #
+        if (i % 2 == 1) {
+            for (int j = 0; j < m; j++)
+                cout << "#";
+        }
+
+        // Right side #
+        else if (i % 4 == 2) {
+            for (int j = 1; j < m; j++)
+                cout << ".";
+            cout << "#";
+        }
+
+        // Left side #
+        else {
+            cout << "#";
+            for (int j = 1; j < m; j++)
+                cout << ".";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
+3.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long n;
+        cin >> n;
+
+        cout << (n - 1) / 2 << endl;
+    }
+    return 0;
+}
+4.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin >> n;
+
+    int home[30], guest[30];
+    int freq[101] = {0};  
+
+    for (int i = 0; i < n; i++) {
+        cin >> home[i] >> guest[i];
+        freq[guest[i]]++;  
+    }
+
+    int ans = 0;
+
+    for (int i = 0; i < n; i++) {
+        ans += freq[home[i]]; 
+    }
+
+    cout << ans;
+
+    return 0;
+}
+5.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string n;
+        cin >> n;
+
+        int k = 0;
+        int parts[10];
+
+        for (int i = 0; i < n.size(); i++) {
+            if (n[i] != '0') {
+                int val = (n[i] - '0');
+
+                for (int j = i + 1; j < n.size(); j++)
+                    val *= 10;
+
+                parts[k++] = val;
+            }
+        }
+
+        cout << k << "\n";
+        for (int i = 0; i < k; i++)
+            cout << parts[i] << " ";
+        cout << "\n";
+    }
+    return 0;
+}
